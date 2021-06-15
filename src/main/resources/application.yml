@@ -1,0 +1,8 @@
+elasticsearch:
+  address: 172.30.84.131
+  port: 9200
+  schema: http
+
+logging:
+  level:
+    spring: debug
