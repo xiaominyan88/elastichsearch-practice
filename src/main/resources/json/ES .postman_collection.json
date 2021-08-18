@@ -1,0 +1,489 @@
+{
+	"info": {
+		"_postman_id": "91b3c065-87b0-4481-906f-34ac409a8ee8",
+		"name": "ES ",
+		"description": "practice my es",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "查询一个地址下所有的索引",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.30.84.131:9200/_cat/indices?v",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"indices"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询一个索引下的所有记录",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.30.84.131:9200/product/_search",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"product",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "局部更新一个文档下部分字段",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"doc\":{\r\n        \"realname\":\"xiaominyan\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/_update/LnxmS3YBDk5UPur4SiWS",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"_update",
+						"LnxmS3YBDk5UPur4SiWS"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除一条文档",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/users/_updated",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"users",
+						"_updated"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "条件匹配查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\":{\r\n        \"match\":{\r\n            \"realname\":\"xiaominyan\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/_search",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "全条件匹配查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\":{\r\n        \"match_all\":{\r\n            \r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/_search",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分页和排序查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\":{\r\n        \"match_all\":{\r\n\r\n        }\r\n    },\r\n    \"from\":0,\r\n    \"size\":1,\r\n    \"sort\":{\r\n        \"realname\":{\r\n            \"order\":\"desc\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/_search",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "多条件查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\":{\r\n        \"bool\":{\r\n            \"should\":[\r\n                {\r\n                    \"match\":{\r\n                        \"realname\":\"xiaominyan\"\r\n                    }\r\n                },\r\n                {\r\n                    \"match\":{\r\n                        \"realname\":\"lilei\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/_search",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "范围查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\":{\r\n        \"range\":{\r\n                    \"username\":{\r\n                       // \"gte\": \"harbotTestznyd\",\r\n                        \"lte\": \"harbotTestznyd\"\r\n                    }\r\n                }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/_search",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "全文检索查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\":{\r\n        \"match_phrase\":{\r\n            \"realname\":\"xiao\"\r\n        }\r\n    },\r\n    \"highlight\":{\r\n        \"fields\":{\r\n            \"realname\":{}\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/_search",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "插入一条记录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"ddv123\",\r\n    \"comment\": \"handsome\",\r\n    \"realname\": \"xiao min yan\",\r\n    \"has_admin_role\": true,\r\n    \"password\": \"12345678\",\r\n    \"email\": \"minyan_xiao@163.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/users",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "聚合查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ES表的结构信息创建（映射）",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"properties\":{\r\n        \"username\":{\r\n            \"type\":\"text\",\r\n            \"index\":true\r\n        },\r\n        \"sex\":{\r\n            \"type\":\"keyword\",\r\n            \"index\":\"true\"\r\n        },\r\n        \"code\":{\r\n            \"type\":\"integer\",\r\n            \"index\":false\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/api/_mapping",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"api",
+						"_mapping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "增加数据",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "创建索引（对分片和副本进行设置）",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"settings\":{\r\n        \"number_of_shards\":1,\r\n        \"number_of_replicas\":1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/usertest",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"usertest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更改索引副本（水平扩容）",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    //shards在创建主题的时候确定\r\n    \"number_of_replicas\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.30.84.131:9200/usertest/_settings",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"84",
+						"131"
+					],
+					"port": "9200",
+					"path": [
+						"usertest",
+						"_settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询分析器的相关信息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
